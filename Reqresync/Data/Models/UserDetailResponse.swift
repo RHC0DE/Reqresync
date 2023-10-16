@@ -1,8 +1,9 @@
 //
-//  UserDetailResponse.swift
 //  Reqresync
 //
-//  Created by Guest User on 16/10/2023.
-//
 
-import Foundation
+// MARK: - UserDetailResponse
+struct UserDetailResponse: Codable {
+    let data: User
+    let support: Support
+}

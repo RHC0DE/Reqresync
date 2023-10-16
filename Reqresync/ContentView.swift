@@ -1,13 +1,11 @@
 //
-//  ContentView.swift
 //  Reqresync
-//
-//  Created by Guest User on 16/10/2023.
 //
 
 import SwiftUI
 
 struct ContentView: View {
+    
     var body: some View {
         VStack {
             Image(systemName: "globe")
@@ -16,6 +14,20 @@ struct ContentView: View {
             Text("Hello, world !")
         }
         .padding()
+        .onAppear {
+            print("Users response 👇")
+            dump(
+                
+               try? StaticJSONMapper.decode(file: "UsersStaticData", type: UsersResponse.self)
+            )
+            
+            print("User response 👇")
+            dump(
+                
+               try? StaticJSONMapper.decode(file: "UserStaticData", type: UserDetailResponse.self)
+            )
+        }
+        
     }
 }
 

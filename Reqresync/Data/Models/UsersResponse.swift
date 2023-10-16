@@ -1,8 +1,11 @@
 //
-//  UsersResponse.swift
 //  Reqresync
 //
-//  Created by Guest User on 16/10/2023.
-//
 
-import Foundation
+// MARK: - UsersResponse
+struct UsersResponse: Codable {
+    let page, perPage, total, totalPages: Int
+    let data: [User]
+    let support: Support
+
+}
