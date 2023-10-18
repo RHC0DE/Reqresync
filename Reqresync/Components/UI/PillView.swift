@@ -1,18 +1,29 @@
 //
-//  PillView.swift
 //  Reqresync
-//
-//  Created by Guest User on 17/10/2023.
 //
 
 import SwiftUI
 
 struct PillView: View {
+    
+    let id: Int
+    
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        
+        Text("#\(id)")
+            .font(
+                .system(.caption, design: .rounded)
+                .bold()
+            )
+            .foregroundStyle(.white)
+            .padding(.horizontal, 9)
+            .padding(.vertical, 4)
+            .background(Colors.pillBackground, in: Capsule())
+        
     }
+    
 }
 
 #Preview {
-    PillView()
+    PillView(id: 0)
 }
