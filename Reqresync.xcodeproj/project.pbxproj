@@ -21,6 +21,8 @@
 		3134A0AA2ADEA08500A88F59 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3134A0A92ADEA08500A88F59 /* SettingsView.swift */; };
 		3134A0AE2ADEB23100A88F59 /* PersonCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3134A0AD2ADEB23100A88F59 /* PersonCellView.swift */; };
 		3134A0B02ADF322800A88F59 /* PillView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3134A0AF2ADF322800A88F59 /* PillView.swift */; };
+		3134A0B22AE03B6C00A88F59 /* PersonDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3134A0B12AE03B6C00A88F59 /* PersonDetailView.swift */; };
+		3134A0B42AE03DB600A88F59 /* BackgroundcolorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3134A0B32AE03DB600A88F59 /* BackgroundcolorView.swift */; };
 		3199CAF02ADD717100CFEC9E /* ReqresyncApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3199CAEF2ADD717100CFEC9E /* ReqresyncApp.swift */; };
 		3199CAF42ADD717200CFEC9E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3199CAF32ADD717200CFEC9E /* Assets.xcassets */; };
 		3199CAF72ADD717200CFEC9E /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3199CAF62ADD717200CFEC9E /* Preview Assets.xcassets */; };
@@ -41,6 +43,8 @@
 		3134A0A92ADEA08500A88F59 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
 		3134A0AD2ADEB23100A88F59 /* PersonCellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonCellView.swift; sourceTree = "<group>"; };
 		3134A0AF2ADF322800A88F59 /* PillView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PillView.swift; sourceTree = "<group>"; };
+		3134A0B12AE03B6C00A88F59 /* PersonDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonDetailView.swift; sourceTree = "<group>"; };
+		3134A0B32AE03DB600A88F59 /* BackgroundcolorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackgroundcolorView.swift; sourceTree = "<group>"; };
 		3199CAEC2ADD717100CFEC9E /* Reqresync.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Reqresync.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3199CAEF2ADD717100CFEC9E /* ReqresyncApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReqresyncApp.swift; sourceTree = "<group>"; };
 		3199CAF32ADD717200CFEC9E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -92,6 +96,7 @@
 			isa = PBXGroup;
 			children = (
 				3134A0AF2ADF322800A88F59 /* PillView.swift */,
+				3134A0B32AE03DB600A88F59 /* BackgroundcolorView.swift */,
 			);
 			path = UI;
 			sourceTree = "<group>";
@@ -159,6 +164,7 @@
 			isa = PBXGroup;
 			children = (
 				3134A0932ADD852600A88F59 /* PeopleView.swift */,
+				3134A0B12AE03B6C00A88F59 /* PersonDetailView.swift */,
 				3134A0AD2ADEB23100A88F59 /* PersonCellView.swift */,
 			);
 			path = People;
@@ -292,6 +298,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				3134A0AE2ADEB23100A88F59 /* PersonCellView.swift in Sources */,
+				3134A0B22AE03B6C00A88F59 /* PersonDetailView.swift in Sources */,
 				3134A0B02ADF322800A88F59 /* PillView.swift in Sources */,
 				3134A0822ADD7F2D00A88F59 /* Colors.swift in Sources */,
 				3134A0802ADD7F0900A88F59 /* Symbols.swift in Sources */,
@@ -302,6 +309,7 @@
 				3134A0A02ADDAD3000A88F59 /* UserDetailResponse.swift in Sources */,
 				3134A0A42ADDAE9400A88F59 /* Models.swift in Sources */,
 				3134A0942ADD852600A88F59 /* PeopleView.swift in Sources */,
+				3134A0B42AE03DB600A88F59 /* BackgroundcolorView.swift in Sources */,
 				3134A0A22ADDADBD00A88F59 /* UsersResponse.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

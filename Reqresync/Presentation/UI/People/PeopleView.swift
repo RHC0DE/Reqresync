@@ -14,7 +14,7 @@ struct PeopleView: View {
         NavigationView {
             
             ZStack {
-                viewBackgroundcolor
+                BackgroundcolorView()
                 
                 ScrollView {
                     
@@ -22,7 +22,12 @@ struct PeopleView: View {
                         
                         ForEach(self.users, id: \.id) { personCard in
                             
-                            PersonCellView(user: personCard)
+                            NavigationLink {
+                                PersonDetailView()
+                            } label: {
+                                PersonCellView(user: personCard)
+
+                            }
                             
                         }
                         
@@ -32,7 +37,7 @@ struct PeopleView: View {
                 }
                 
             }
-            .navigationTitle(Strings.navigationTitle)
+            .navigationTitle(Strings.navigationTitlePeople)
             .toolbar {
                 ToolbarItem(placement: .primaryAction) {
                     createBtn
@@ -65,12 +70,7 @@ struct PeopleView: View {
 }
 
 private extension PeopleView {
-    
-    var viewBackgroundcolor: some View {
-        Colors.uiBackground
-            .ignoresSafeArea(edges: .top)
-    }
-    
+        
     var createBtn: some View {
         Button {
             
