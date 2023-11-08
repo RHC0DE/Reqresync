@@ -18,26 +18,29 @@ struct PeopleView: View {
             ZStack {
                 BackgroundcolorView()
                 
-                ScrollView {
-                    
-                    LazyVGrid(columns: columns, spacing: 16) {
+                if viewModel.isLoading {
+                    ProgressView()
+                } else {
+                    ScrollView {
                         
-                        ForEach(self.viewModel.users, id: \.id) { personCard in
+                        LazyVGrid(columns: columns, spacing: 16) {
                             
-                            NavigationLink {
-                                PersonDetailView(userId: personCard.id)
-                            } label: {
-                                PersonCellView(user: personCard)
-
+                            ForEach(self.viewModel.users, id: \.id) { personCard in
+                                
+                                NavigationLink {
+                                    PersonDetailView(userId: personCard.id)
+                                } label: {
+                                    PersonCellView(user: personCard)
+                                    
+                                }
+                                
                             }
                             
                         }
+                        .padding()
                         
                     }
-                    .padding()
-                    
                 }
-                
             }
             .navigationTitle(Strings.navigationTitlePeople)
             .toolbar {
@@ -53,11 +56,8 @@ struct PeopleView: View {
             .sheet(isPresented: self.$shouldShowCreate) {
                 CreatePersonView()
             }
-            .alert(isPresented: $viewModel.hasError, error: viewModel.error) {
-                Button("Retry") {
-                    viewModel.fetchUsers()
-                }
-            }
+            .alert(isPresented: $viewModel.hasError, error: viewModel.error) {}
+            
         }
         
     }
@@ -68,8 +68,9 @@ struct PeopleView: View {
 }
 
 private extension PeopleView {
-        
+    
     var createBtn: some View {
+        
         Button {
             self.shouldShowCreate.toggle()
         } label: {
@@ -79,6 +80,8 @@ private extension PeopleView {
                     .bold()
                 )
         }
+        .disabled(viewModel.isLoading)
+
+        
     }
-    
 }

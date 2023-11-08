@@ -14,25 +14,29 @@ struct PersonDetailView: View {
         ZStack {
             BackgroundcolorView()
             
-            ScrollView {
+            if viewModel.isloading {
+                ProgressView()
+            } else {
                 
-                VStack(alignment: .leading, spacing: 18) {
+                ScrollView {
                     
-                    avatarBackgroundImage
-                    
-                    Group {
-                        generalUserInfo
-                        supportSection
+                    VStack(alignment: .leading, spacing: 18) {
+                        
+                        avatarBackgroundImage
+                        
+                        Group {
+                            generalUserInfo
+                            supportSection
+                        }
+                        .padding(.horizontal, 8)
+                        .padding(.vertical, 18)
+                        .background(Colors.detailBackground, in: RoundedRectangle(cornerRadius: 16, style: .continuous))
+                        
                     }
-                    .padding(.horizontal, 8)
-                    .padding(.vertical, 18)
-                    .background(Colors.detailBackground, in: RoundedRectangle(cornerRadius: 16, style: .continuous))
+                    .padding()
                     
                 }
-                .padding()
-                
             }
-            
         }
         .navigationTitle(Strings.navigationTitleDetails)
         .onAppear {
@@ -56,7 +60,7 @@ struct PersonDetailView_Previews: PreviewProvider {
         
         NavigationView {
             PersonDetailView(userId: previewUserId)
-
+            
         }
         
     }

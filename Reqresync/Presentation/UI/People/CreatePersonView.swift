@@ -24,6 +24,7 @@ struct CreatePersonView: View {
                 }
                 
             }
+            .disabled(viewModel.state == .submitting)
             .navigationTitle(Strings.navigationTitleCreatePerson)
             .toolbar {
                 
@@ -36,7 +37,13 @@ struct CreatePersonView: View {
                 }
             }
             .alert(isPresented: $viewModel.hasError, error: viewModel.error) {}
-
+            .overlay {
+                
+                if viewModel.state == .submitting {
+                    ProgressView()
+                }
+            }
+            
         }
         
     }

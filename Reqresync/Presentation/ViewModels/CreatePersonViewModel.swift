@@ -9,9 +9,12 @@ final class CreatePersonViewModel: ObservableObject {
     @Published var user = UserCreated()
     @Published private(set) var state: SubmissionFormState?
     @Published private(set) var error: NetworkingManager.NetworkingError?
+    @Published private(set) var isLoadingWhileSending =  false
     @Published var hasError =  false
     
     func create() {
+        
+        state = .submitting 
         
         let encoder = JSONEncoder()
         encoder.keyEncodingStrategy = .convertToSnakeCase
@@ -20,7 +23,7 @@ final class CreatePersonViewModel: ObservableObject {
         NetworkingManager
             .shared
             .request(methodType: .POST(data: data),
-                     "https://reqres.in/api/users") {[weak self] res in
+                     "https://reqres.in/api/users?delay=3") {[weak self] res in
                 
                 DispatchQueue.main.async {
                     
@@ -44,6 +47,6 @@ extension CreatePersonViewModel {
     enum SubmissionFormState {
         case successful
         case unsuccessful
-
+        case submitting
     }
 }
