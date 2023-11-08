@@ -23,9 +23,15 @@
 		3134A0B02ADF322800A88F59 /* PillView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3134A0AF2ADF322800A88F59 /* PillView.swift */; };
 		3134A0B22AE03B6C00A88F59 /* PersonDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3134A0B12AE03B6C00A88F59 /* PersonDetailView.swift */; };
 		3134A0B42AE03DB600A88F59 /* BackgroundcolorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3134A0B32AE03DB600A88F59 /* BackgroundcolorView.swift */; };
+		3184B5DF2AEBA152005606D0 /* UserCreated.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3184B5DE2AEBA152005606D0 /* UserCreated.swift */; };
+		3184B5E12AEBA1FE005606D0 /* CreatePersonViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3184B5E02AEBA1FE005606D0 /* CreatePersonViewModel.swift */; };
+		3197DAD42AE3C25000CCA6DE /* CreatePersonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3197DAD32AE3C25000CCA6DE /* CreatePersonView.swift */; };
 		3199CAF02ADD717100CFEC9E /* ReqresyncApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3199CAEF2ADD717100CFEC9E /* ReqresyncApp.swift */; };
 		3199CAF42ADD717200CFEC9E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3199CAF32ADD717200CFEC9E /* Assets.xcassets */; };
 		3199CAF72ADD717200CFEC9E /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3199CAF62ADD717200CFEC9E /* Preview Assets.xcassets */; };
+		319B26E12AE4722F00FB949B /* NetworkingManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 319B26E02AE4722F00FB949B /* NetworkingManager.swift */; };
+		319B26E32AE515E500FB949B /* PeopleViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 319B26E22AE515E500FB949B /* PeopleViewModel.swift */; };
+		319B26E52AE522D600FB949B /* PersonDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 319B26E42AE522D600FB949B /* PersonDetailViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -45,10 +51,16 @@
 		3134A0AF2ADF322800A88F59 /* PillView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PillView.swift; sourceTree = "<group>"; };
 		3134A0B12AE03B6C00A88F59 /* PersonDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonDetailView.swift; sourceTree = "<group>"; };
 		3134A0B32AE03DB600A88F59 /* BackgroundcolorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackgroundcolorView.swift; sourceTree = "<group>"; };
+		3184B5DE2AEBA152005606D0 /* UserCreated.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserCreated.swift; sourceTree = "<group>"; };
+		3184B5E02AEBA1FE005606D0 /* CreatePersonViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreatePersonViewModel.swift; sourceTree = "<group>"; };
+		3197DAD32AE3C25000CCA6DE /* CreatePersonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreatePersonView.swift; sourceTree = "<group>"; };
 		3199CAEC2ADD717100CFEC9E /* Reqresync.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Reqresync.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3199CAEF2ADD717100CFEC9E /* ReqresyncApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReqresyncApp.swift; sourceTree = "<group>"; };
 		3199CAF32ADD717200CFEC9E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		3199CAF62ADD717200CFEC9E /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		319B26E02AE4722F00FB949B /* NetworkingManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkingManager.swift; sourceTree = "<group>"; };
+		319B26E22AE515E500FB949B /* PeopleViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PeopleViewModel.swift; sourceTree = "<group>"; };
+		319B26E42AE522D600FB949B /* PersonDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonDetailViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -114,6 +126,7 @@
 			children = (
 				3134A09F2ADDAD3000A88F59 /* UserDetailResponse.swift */,
 				3134A0A12ADDADBD00A88F59 /* UsersResponse.swift */,
+				3184B5DE2AEBA152005606D0 /* UserCreated.swift */,
 				3134A0A32ADDAE9400A88F59 /* Models.swift */,
 			);
 			path = Models;
@@ -122,6 +135,7 @@
 		3134A0892ADD83F100A88F59 /* Managers */ = {
 			isa = PBXGroup;
 			children = (
+				319B26DE2AE4720300FB949B /* Network */,
 				3134A0A52ADDAFAC00A88F59 /* Mapper */,
 			);
 			path = Managers;
@@ -149,6 +163,9 @@
 		3134A08E2ADD848B00A88F59 /* ViewModels */ = {
 			isa = PBXGroup;
 			children = (
+				319B26E22AE515E500FB949B /* PeopleViewModel.swift */,
+				319B26E42AE522D600FB949B /* PersonDetailViewModel.swift */,
+				3184B5E02AEBA1FE005606D0 /* CreatePersonViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -164,6 +181,7 @@
 			isa = PBXGroup;
 			children = (
 				3134A0932ADD852600A88F59 /* PeopleView.swift */,
+				3197DAD32AE3C25000CCA6DE /* CreatePersonView.swift */,
 				3134A0B12AE03B6C00A88F59 /* PersonDetailView.swift */,
 				3134A0AD2ADEB23100A88F59 /* PersonCellView.swift */,
 			);
@@ -222,6 +240,14 @@
 				3199CAF62ADD717200CFEC9E /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		319B26DE2AE4720300FB949B /* Network */ = {
+			isa = PBXGroup;
+			children = (
+				319B26E02AE4722F00FB949B /* NetworkingManager.swift */,
+			);
+			path = Network;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -298,17 +324,23 @@
 			buildActionMask = 2147483647;
 			files = (
 				3134A0AE2ADEB23100A88F59 /* PersonCellView.swift in Sources */,
+				3197DAD42AE3C25000CCA6DE /* CreatePersonView.swift in Sources */,
 				3134A0B22AE03B6C00A88F59 /* PersonDetailView.swift in Sources */,
 				3134A0B02ADF322800A88F59 /* PillView.swift in Sources */,
+				319B26E52AE522D600FB949B /* PersonDetailViewModel.swift in Sources */,
 				3134A0822ADD7F2D00A88F59 /* Colors.swift in Sources */,
+				319B26E12AE4722F00FB949B /* NetworkingManager.swift in Sources */,
 				3134A0802ADD7F0900A88F59 /* Symbols.swift in Sources */,
 				3134A07E2ADD7EC100A88F59 /* Strings.swift in Sources */,
 				3134A0A72ADDAFC800A88F59 /* StaticJSONMapper.swift in Sources */,
 				3199CAF02ADD717100CFEC9E /* ReqresyncApp.swift in Sources */,
 				3134A0AA2ADEA08500A88F59 /* SettingsView.swift in Sources */,
 				3134A0A02ADDAD3000A88F59 /* UserDetailResponse.swift in Sources */,
+				3184B5E12AEBA1FE005606D0 /* CreatePersonViewModel.swift in Sources */,
 				3134A0A42ADDAE9400A88F59 /* Models.swift in Sources */,
+				3184B5DF2AEBA152005606D0 /* UserCreated.swift in Sources */,
 				3134A0942ADD852600A88F59 /* PeopleView.swift in Sources */,
+				319B26E32AE515E500FB949B /* PeopleViewModel.swift in Sources */,
 				3134A0B42AE03DB600A88F59 /* BackgroundcolorView.swift in Sources */,
 				3134A0A22ADDADBD00A88F59 /* UsersResponse.swift in Sources */,
 			);

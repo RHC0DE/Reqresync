@@ -1,8 +1,13 @@
 //
-//  UserCreated.swift
 //  Reqresync
-//
-//  Created by Guest User on 27/10/2023.
 //
 
 import Foundation
+
+struct UserCreated: Encodable {
+    
+    var firstName: String = ""
+    var lastName: String = ""
+    var jobTitle: String = ""
+    
+}

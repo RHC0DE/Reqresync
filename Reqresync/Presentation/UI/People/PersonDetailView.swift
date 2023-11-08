@@ -6,62 +6,67 @@ import SwiftUI
 
 struct PersonDetailView: View {
     
-    @State private var userDetailInfo: UserDetailResponse?
+    let userId: Int
+    @StateObject private var viewModel = PersonDetailViewModel()
     
     var body: some View {
         
-            ZStack {
-                BackgroundcolorView()
+        ZStack {
+            BackgroundcolorView()
+            
+            ScrollView {
                 
-                ScrollView {
+                VStack(alignment: .leading, spacing: 18) {
                     
-                    VStack(alignment: .leading, spacing: 18) {
-                        
-                        avatarBackgroundImage
-                        
-                        Group {
-                            generalUserInfo
-                            supportSection
-                        }
-                        .padding(.horizontal, 8)
-                        .padding(.vertical, 18)
-                        .background(Colors.detailBackground, in: RoundedRectangle(cornerRadius: 16, style: .continuous))
-                        
+                    avatarBackgroundImage
+                    
+                    Group {
+                        generalUserInfo
+                        supportSection
                     }
-                    .padding()
+                    .padding(.horizontal, 8)
+                    .padding(.vertical, 18)
+                    .background(Colors.detailBackground, in: RoundedRectangle(cornerRadius: 16, style: .continuous))
                     
                 }
-                
-            }
-            .navigationTitle(Strings.navigationTitleDetails)
-            .onAppear {
-                
-                do {
-                    self.userDetailInfo = try StaticJSONMapper.decode(file: "UserStaticData", type: UserDetailResponse.self)
-                } catch {
-                    // TODO: Handle any erros
-                    print(error)
-                }
+                .padding()
                 
             }
             
+        }
+        .navigationTitle(Strings.navigationTitleDetails)
+        .onAppear {
+            
+            viewModel.fetchUsersDetail(for: userId)
+        }
+        .alert(isPresented: $viewModel.hasError, error: viewModel.error) {}
         
     }
 }
 
-#Preview {
+struct PersonDetailView_Previews: PreviewProvider {
     
-    NavigationView {
-        PersonDetailView()
+    static var previewUserId: Int {
+        let user = try! StaticJSONMapper.decode(file: "UsersStaticData", type: UsersResponse.self)
+        
+        return user.data.first!.id
     }
     
+    static var previews: some View {
+        
+        NavigationView {
+            PersonDetailView(userId: previewUserId)
+
+        }
+        
+    }
 }
 
 private extension PersonDetailView {
     
     @ViewBuilder
     var avatarBackgroundImage: some View {
-        if let avatarAbsoluteString = userDetailInfo?.data.avatar,
+        if let avatarAbsoluteString = viewModel.userInfo?.data.avatar,
            let avatarUrl = URL(string: avatarAbsoluteString) {
             
             AsyncImage(url: avatarUrl) { image in
@@ -84,7 +89,7 @@ private extension PersonDetailView {
         
         VStack(alignment: .leading, spacing: 8) {
             
-            PillView(id: userDetailInfo?.data.id ?? 0)
+            PillView(id: viewModel.userInfo?.data.id ?? 0)
             
             Group {
                 
@@ -97,9 +102,9 @@ private extension PersonDetailView {
             .foregroundStyle(Colors.textColor)
             
         }
-
+        
     }
-
+    
     @ViewBuilder
     var firstNameSection: some View {
         
@@ -109,7 +114,7 @@ private extension PersonDetailView {
                 .weight(.semibold)
             )
         
-        Text(userDetailInfo?.data.firstName ?? "Failed to load Fist Name!")
+        Text(viewModel.userInfo?.data.firstName ?? "Failed to load Fist Name!")
             .font(
                 .system(.subheadline, design: .rounded)
             )
@@ -127,7 +132,7 @@ private extension PersonDetailView {
                 .weight(.semibold)
             )
         
-        Text(userDetailInfo?.data.lastName ?? "Failed to load Last Name!")
+        Text(viewModel.userInfo?.data.lastName ?? "Failed to load Last Name!")
             .font(
                 .system(.subheadline, design: .rounded)
             )
@@ -145,7 +150,7 @@ private extension PersonDetailView {
                 .weight(.semibold)
             )
         
-        Text(userDetailInfo?.data.email ?? "Failed to load email!")
+        Text(viewModel.userInfo?.data.email ?? "Failed to load email!")
             .font(
                 .system(.subheadline, design: .rounded)
             )
@@ -158,9 +163,9 @@ private extension PersonDetailView {
         
         // If the user is retrieving the url en text Support data then the View get's shown in the UI
         
-        if let supportAbsoluteString = userDetailInfo?.support.url,
+        if let supportAbsoluteString = viewModel.userInfo?.support.url,
            let supportUrl = URL(string: supportAbsoluteString),
-           let supportTxt = userDetailInfo?.support.text {
+           let supportTxt = viewModel.userInfo?.support.text {
             
             Link(destination: supportUrl) {
                 
@@ -173,7 +178,7 @@ private extension PersonDetailView {
                             .weight(.semibold)
                         )
                         .multilineTextAlignment(.leading)
-                
+                    
                     Text(supportAbsoluteString)
                     
                 }
@@ -183,7 +188,7 @@ private extension PersonDetailView {
                 Symbols
                     .link
                     .font(.system(.title3, design: .rounded))
-
+                
             }
             
         }

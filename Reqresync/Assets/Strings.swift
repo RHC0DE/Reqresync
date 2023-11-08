@@ -18,4 +18,12 @@ struct Strings {
     // MARK: - Settings View
 
     // MARK: - About View
+    
+    // MARK: - Create Person View
+    static let navigationTitleCreatePerson = "Create"
+    static let firstNameTxtField = "First Name"
+    static let lastNameTxtField = "Last Name"
+    static let jobTitleTxtField = "Job"
+    static let submitBtnTitle = "Submit"
+    static let doneBtnTitle = "Done"
 }

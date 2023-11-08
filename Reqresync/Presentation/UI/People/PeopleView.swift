@@ -7,7 +7,9 @@ import SwiftUI
 struct PeopleView: View {
     
     private let columns = Array(repeating: GridItem(.flexible()), count: 2)
-    @State private var users: [User] = []
+    
+    @State private var shouldShowCreate = false
+    @StateObject private var viewModel = PeopleViewModel()
     
     var body: some View {
         
@@ -20,10 +22,10 @@ struct PeopleView: View {
                     
                     LazyVGrid(columns: columns, spacing: 16) {
                         
-                        ForEach(self.users, id: \.id) { personCard in
+                        ForEach(self.viewModel.users, id: \.id) { personCard in
                             
                             NavigationLink {
-                                PersonDetailView()
+                                PersonDetailView(userId: personCard.id)
                             } label: {
                                 PersonCellView(user: personCard)
 
@@ -46,20 +48,16 @@ struct PeopleView: View {
                 
             }
             .onAppear {
-                
-                do {
-                    let res = try StaticJSONMapper.decode(file: "UsersStaticData", type: UsersResponse.self)
-                    
-                    users = res.data
-                    
-                } catch {
-                    // TODO: Handle any erros
-                    print(error)
-                    
-                }
-                
+                self.viewModel.fetchUsers()
             }
-            
+            .sheet(isPresented: self.$shouldShowCreate) {
+                CreatePersonView()
+            }
+            .alert(isPresented: $viewModel.hasError, error: viewModel.error) {
+                Button("Retry") {
+                    viewModel.fetchUsers()
+                }
+            }
         }
         
     }
@@ -73,7 +71,7 @@ private extension PeopleView {
         
     var createBtn: some View {
         Button {
-            
+            self.shouldShowCreate.toggle()
         } label: {
             Symbols.addPersonBtn
                 .font(
